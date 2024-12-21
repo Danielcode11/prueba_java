@@ -30,4 +30,8 @@ public class ClienteController {
         return service.obtenerClientesPorEdad();
     }
 
+    @GetMapping("/estadisticas")
+    public double obtenerPromedioEdad() {
+        return service.obtenerPromedioEdad();
+    }
 }

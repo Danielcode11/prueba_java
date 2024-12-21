@@ -32,4 +32,12 @@ public class ClienteService {
                 .sorted()
                 .toList();
     }
+
+    public double obtenerPromedioEdad() {
+        List<Cliente> clientes = repository.findAll();
+        return clientes.stream()
+                .mapToInt(c -> Period.between(c.getFechaNacimiento(), LocalDate.now()).getYears())
+                .average()
+                .orElse(0.0);
+    }
 }
